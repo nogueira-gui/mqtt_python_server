@@ -2,6 +2,8 @@
 
 Este projeto demonstra como configurar um servidor IoT com Flask para exibir dados de sensores em tempo real, usando MQTT para comunicação e WebSockets para atualização da interface.
 
+![alt text](image.png)
+
 ## **Estrutura do Projeto**
 
 ```
