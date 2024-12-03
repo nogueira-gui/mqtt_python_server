@@ -36,10 +36,6 @@ O arquivo `mosquitto.conf` já está configurado para permitir conexões anônim
 
 ---
 
-#Aqui está uma versão aprimorada do tópico sobre **Instalação e Configuração das Bibliotecas** para o seu projeto de servidor IoT com Python, Flask e Mosquitto. Eu inclui explicações detalhadas de como instalar as bibliotecas e como elas funcionam no projeto:
-
----
-
 ### 2. Bibliotecas Necessárias
 
 Para que o seu projeto funcione corretamente com o ESP32, MQTT e o sensor de temperatura, você precisará instalar algumas bibliotecas específicas. Abaixo estão as instruções para instalação e uma breve descrição de como cada uma delas funciona no contexto do seu projeto.
