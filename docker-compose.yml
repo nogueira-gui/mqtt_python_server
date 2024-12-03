@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  flask-app:
+    build:
+      context: ./app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mosquitto
+    volumes:
+      - ./app:/app
+    environment:
+      - FLASK_ENV=development
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf

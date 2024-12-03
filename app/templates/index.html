@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados IoT em Tempo Real</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-md rounded-lg p-6 w-96">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Dados IoT</h1>
+        <div id="data-container" class="text-gray-600 text-lg">
+            <p><span class="font-semibold">Sensor Pin:</span> <span id="temp_sensor_pin">--</span></p>
+            <p><span class="font-semibold">Temperature:</span> <span id="c_temperature">--</span>°C</p>
+            <p><span class="font-semibold">Temperature:</span> <span id="f_temperature">--</span>°F</p>
+        </div>
+    </div>
+
+    <script>
+        // Connect websocket server
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // Reatime update
+        socket.on('new_message', function(data) {
+            const { message } = data;
+            document.getElementById('c_temperature').textContent = message.c_temperature;
+            document.getElementById('f_temperature').textContent = message.f_temperature;
+            document.getElementById('temp_sensor_pin').textContent = message.temp_sensor_pin;
+        });
+    </script>
+</body>
+</html>
